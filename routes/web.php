@@ -13,3 +13,23 @@ Route::get('/peminjaman', function () {
 Route::get('/history', function () {
     return view('history');
 })->name('history');
+
+Route::get('/komik', function () {
+    return view('komik');
+})->name('komik');
+
+Route::get('/novel', function () {
+    return view('novel');
+})->name('novel');
+
+Route::get('/bukupelajaran', function () {
+    return view('bukupelajaran');
+})->name('bukupelajaran');
+
+Route::get('/bukuanak', function () {
+    return view('bukuanak');
+})->name('bukuanak');
+
+Route::get('/biografi', function () {
+    return view('biografi');
+})->name('biografi');

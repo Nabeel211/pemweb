@@ -1,6 +1,17 @@
 @extends('template.sidebar')
 
 @section('content')
+<div class="container-fluid" style="
+    position: relative;
+    background: url('{{ asset('img/background.png') }}') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 2rem;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+">
+
 <div class="container py-4">
     <h1 class="text-center mb-5 fw-bold">History Peminjaman</h1>
     

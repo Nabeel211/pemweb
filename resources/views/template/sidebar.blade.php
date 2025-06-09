@@ -29,12 +29,15 @@
         }
         .main-content {
             margin-left: 250px;
-            padding: 20px;
         }
     </style>
 </head>
 <body>
 <div class="sidebar">
+    <!-- Logo -->
+    <div class="text-center mb-2">
+        <img src="{{ asset('img/logo.png') }}" alt="Tealibrary Logo" style="width: 100px; height: auto;">
+    </div>
     <h3 class="text-center mb-4">Tealibrary</h3>
 
     <a href="{{route('home')}}"><i class="bi bi-house-door me-2"></i> Dashboard</a>
@@ -43,11 +46,11 @@
         <i class="bi bi-book me-2"></i> List Buku <i class="bi bi-caret-down-fill float-end"></i>
     </a>
     <div class="collapse" id="listBukuCollapse">
-        <a href="#" class="ps-4 d-block"><i class="bi bi-bookmark me-2"></i> Komik</a>
-        <a href="#" class="ps-4 d-block"><i class="bi bi-journal-bookmark me-2"></i> Novel</a>
-        <a href="#" class="ps-4 d-block"><i class="bi bi-person-lines-fill me-2"></i> Biografi</a>
-        <a href="#" class="ps-4 d-block"><i class="bi bi-journals me-2"></i> Buku Pelajaran</a>
-        <a href="#" class="ps-4 d-block"><i class="bi bi-emoji-smile me-2"></i> Buku Anak</a>
+        <a href="{{route('komik')}}" class="ps-4 d-block"><i class="bi bi-bookmark me-2"></i> Komik</a>
+        <a href="{{route('novel')}}" class="ps-4 d-block"><i class="bi bi-journal-bookmark me-2"></i> Novel</a>
+        <a href="{{route('biografi')}}" class="ps-4 d-block"><i class="bi bi-person-lines-fill me-2"></i> Biografi</a>
+        <a href="{{route('bukupelajaran')}}" class="ps-4 d-block"><i class="bi bi-journals me-2"></i> Buku Pelajaran</a>
+        <a href="{{route('bukuanak')}}" class="ps-4 d-block"><i class="bi bi-emoji-smile me-2"></i> Buku Anak</a>
     </div>
 
     <a href="{{ route('history') }}">
