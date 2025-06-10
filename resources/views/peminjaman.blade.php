@@ -1,9 +1,15 @@
 @extends('template.sidebar')
 
 @section('content')
+<header class="bg-teal d-flex align-items-center px-4 py-2" style="background-color: #1b7772; color: white; height: 70px;">
+    <div class="d-flex align-items-center">
+        <h3 class="mb-0" style="font-weight: bold; font-family: 'Georgia', serif; letter-spacing: 1px;">Tealibrary</h3>
+    </div>
+</header>
+
 <div class="container-fluid" style="
     position: relative;
-    background: url('{{ asset('img/background.png') }}') no-repeat center center;
+    background: url('{{ asset('img/background2.png') }}') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
     padding: 0; /* ubah dari 2rem jadi 0 */

@@ -1,12 +1,18 @@
 @extends('template.sidebar')
 
 @section('content')
+<header class="bg-teal d-flex align-items-center px-4 py-2" style="background-color: #1b7772; color: white; height: 70px;">
+    <div class="d-flex align-items-center">
+        <h3 class="mb-0" style="font-weight: bold; font-family: 'Georgia', serif; letter-spacing: 1px;">Tealibrary</h3>
+    </div>
+</header>
+
 <style>
     .comic-card img {
-        width: 120px;
-        height: 180px;
+        width: 100px;
+        height: 150px;
         object-fit: cover;
-        border-radius: 6px;
+        border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
     .comic-title {
@@ -21,19 +27,12 @@
 
 <div class="container-fluid" style="
     position: relative;
-    background: url('{{ asset('img/background.png') }}') no-repeat center center;
+    background: url('{{ asset('img/background2.png') }}') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
     padding: 2rem;
 ">
-<!-- Overlay -->
-    <div style="
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 0;
-        ">
-    </div>
+
     <div style="position: relative; z-index: 1;">
         <h2 class="text-center mb-4" style="font-weight: bold;">Biografi</h2>
 
@@ -48,7 +47,7 @@
                 ];
             @endphp
 
-            @for ($i = 0; $i < 4; $i++) {{-- Loop baris --}}
+            @for ($i = 0; $i < 3; $i++) {{-- Loop baris --}}
                 @foreach ($komikList as $komik)
                     <div class="col-6 col-sm-4 col-md-2 text-center mb-4 comic-card">
                         <img src="{{ asset('img/' . $komik['img']) }}" alt="{{ $komik['title'] }}">

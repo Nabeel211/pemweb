@@ -81,15 +81,21 @@
 
             .book-nav {
                 position: absolute;
-                top: 40%;
-                background-color: rgba(0, 0, 0, 0.5);
+                top: 30%;
+                background: transparent; /* Hilangkan warna latar */
                 color: white;
                 border: none;
-                font-size: 2rem;
-                padding: 0.5rem 1rem;
+                font-size: 2.5rem;
+                padding: 0; /* Hapus padding */
                 cursor: pointer;
                 z-index: 5;
                 border-radius: 50%;
+                line-height: 1; /* Pastikan tinggi pas dengan ikon */
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .book-nav.left {
@@ -103,6 +109,11 @@
 
 
 @section('content')
+<header class="bg-teal d-flex align-items-center px-4 py-2" style="background-color: #1b7772; color: white; height: 70px;">
+    <div class="d-flex align-items-center">
+        <h3 class="mb-0" style="font-weight: bold; font-family: 'Georgia', serif; letter-spacing: 1px;">Tealibrary</h3>
+    </div>
+</header>
     <!-- Bootstrap CSS & JS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -121,7 +132,7 @@
         <div style="
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(122, 122, 122, 0.3);
             z-index: 0;
         "></div>
 
@@ -158,10 +169,13 @@
 
                     <h4 class="mt-5">Kategori Buku</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-                        @foreach(['Komik', 'Novel', 'Biografi', 'Buku Ilmiah', 'Buku Anak', 'Cerpen'] as $kategori)
-                            <a href="#" class="btn btn-dark rounded-pill px-4 py-2">{{ $kategori }}</a>
-                        @endforeach
+                        <a href="{{ route('komik') }}" class="btn btn-dark rounded-pill px-4 py-2">Komik</a>
+                        <a href="{{ route('novel') }}" class="btn btn-dark rounded-pill px-4 py-2">Novel</a>
+                        <a href="{{ route('biografi') }}" class="btn btn-dark rounded-pill px-4 py-2">Biografi</a>
+                        <a href="{{ route('pelajaran') }}" class="btn btn-dark rounded-pill px-4 py-2">Buku pelajaran</a>
+                        <a href="{{ route('cerpen') }}" class="btn btn-dark rounded-pill px-4 py-2">Cerpen</a>
                     </div>
+
                 </div>
             </div>
 
