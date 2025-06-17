@@ -31,39 +31,55 @@
         }
         .login-box {
             background-color: #216c6c;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 60px;
+            border-radius: 12px;
             display: flex;
-            gap: 40px;
-            box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+            gap: 60px;
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.4);
+            max-width: 900px;
         }
         .login-form {
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            width: 300px;
+            padding: 50px;
+            border-radius: 12px;
+            width: 400px;
+            min-height: 450px;
         }
         .login-form input {
             background-color: #e0e8ea;
+            padding: 12px;
+            font-size: 16px;
         }
         .login-btn {
             background-color: #ccc;
             font-weight: bold;
+            padding: 12px;
+            font-size: 16px;
         }
         .left-box {
             text-align: center;
             color: white;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .left-box img {
-            width: 250px;
+            width: 300px;
+            margin-bottom: 30px;
         }
         .learn-more {
             background-color: #74b3b3;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border-radius: 25px;
             border: none;
             font-weight: bold;
+            font-size: 16px;
+        }
+        .form-label {
+            font-size: 14px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -74,23 +90,22 @@
         <div class="login-box">
             <div class="left-box">
                 <img src="{{ asset('img/logo.png') }}" alt="Tealibrary">
-                <br><br>
                 <div class="learn-more">Learn and Earn More</div>
             </div>
             <form class="login-form" method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <div class="d-flex justify-content-end mb-2">
-                    <a href="{{ route('register') }}" class="me-2 text-decoration-none" style="color:#216c6c">Sign Up</a>
-                    <span style="border-bottom: 2px solid #216c6c; font-weight: bold;">Login</span>
+                <div class="d-flex justify-content-end mb-4">
+                    <a href="{{ route('register') }}" class="me-3 text-decoration-none" style="color:#216c6c; font-size: 16px;">Sign Up</a>
+                    <span style="border-bottom: 2px solid #216c6c; font-weight: bold; font-size: 16px;">Login</span>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="email" class="form-label small fw-bold">ID Pengguna</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="ID Anda" required autofocus>
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-5">
                     <label for="password" class="form-label small fw-bold">Password Pengguna</label>
                     <input type="password" id="password" name="password" class="form-control" placeholder="Password Anda" required>
                 </div>

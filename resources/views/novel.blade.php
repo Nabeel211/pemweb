@@ -59,7 +59,6 @@
                     <div class="col-6 col-sm-4 col-md-2 text-center mb-4 comic-card">
                         <img src="{{ asset('img/' . $komik['img']) }}" alt="{{ $komik['title'] }}">
                         <div class="comic-title">{{ $komik['title'] }}</div>
-                        <div class="comic-info">Chapter {{ $komik['chapter'] }}</div>
                         <div class="comic-info">Rating {{ $komik['rating'] }}</div>
                     </div>
                 @endforeach

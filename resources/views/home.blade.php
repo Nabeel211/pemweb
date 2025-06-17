@@ -105,13 +105,18 @@
             .book-nav.right {
                 right: 100px;
             }
+
+            /* Custom styling untuk search section */
+            .search-section {
+                padding-top: 120px; /* Menambahkan jarak dari atas */
+            }
         </style>
 
 
 @section('content')
 <header class="bg-teal d-flex align-items-center px-4 py-2" style="background-color: #1b7772; color: white; height: 70px;">
     <div class="d-flex align-items-center">
-        <h3 class="mb-0" style="font-weight: bold; font-family: 'Georgia', serif; letter-spacing: 1px;">Tealibrary</h3>
+        <h3 class="mb-0" style="font-weight: bold; font-family: 'Purple Purse', serif; letter-spacing: 1px; font-size: 50px;" >Tealibrary</h3>
     </div>
 </header>
     <!-- Bootstrap CSS & JS -->
@@ -139,8 +144,8 @@
         <!-- Konten -->
         <div style="position: relative; z-index: 1; color: white;">
             <div class="d-flex justify-content-center">
-                <div class="text-center" style="max-width: 700px;">
-                    <h1 class="mb-4">Cari Buku</h1>
+                <div class="text-center search-section" style="font-weight: bold; font-family: 'Purple Purse', serif; letter-spacing: 1px; font-size: 180px;">
+                    <h1 class="mb-4" style="font-size: 60px;">Cari Buku</h1>
                     <form class="input-group mb-4">
                         <input type="text" class="form-control" placeholder="Judul Buku: Harry Potter, A Game of Thrones, and more">
                         <button class="btn btn-dark" type="submit">Cari</button>
@@ -157,17 +162,19 @@
             </div>
 
             <!-- Tentang Kami & Kategori Buku -->
+            <!-- Tentang Kami & Kategori Buku -->
             <div class="d-flex justify-content-center">
-                <div class="text-center" style="max-width: 700px;">
-                    <h5><strong>Tentang Kami</strong></h5>
-                    <p>
+                <div class="text-center" style="max-width: 700px; color: black; font-weight: 3000;">
+                    <h5 style="color: black; font-size: 28px"><strong>Tentang Kami</strong></h5>
+                    <p style="font-size: 22px; color: black;">
                         Selamat datang di Perpustakaan Tealibrary! Kami adalah pusat pengetahuan dan literasi
                         yang berdedikasi untuk mendukung pembelajaran, penelitian, dan pengembangan diri masyarakat.
                         Dengan koleksi ribuan buku, jurnal, dan media digital, perpustakaan kami menjadi ruang terbuka
                         bagi siapa saja yang haus akan ilmu dan informasi.
                     </p>
 
-                    <h4 class="mt-5">Kategori Buku</h4>
+                    <h4 class="mt-5" style="color: black; font-size: 24px">Kategori Buku</h4>
+                    
                     <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
                         <a href="{{ route('komik') }}" class="btn btn-dark rounded-pill px-4 py-2">Komik</a>
                         <a href="{{ route('novel') }}" class="btn btn-dark rounded-pill px-4 py-2">Novel</a>
@@ -175,7 +182,6 @@
                         <a href="{{ route('pelajaran') }}" class="btn btn-dark rounded-pill px-4 py-2">Buku pelajaran</a>
                         <a href="{{ route('cerpen') }}" class="btn btn-dark rounded-pill px-4 py-2">Cerpen</a>
                     </div>
-
                 </div>
             </div>
 
