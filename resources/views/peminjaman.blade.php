@@ -17,36 +17,35 @@
 <div class="container py-4">
     <h1 class="text-center mb-5 fw-bold">Pinjam Buku</h1>
     
-    <form class="row g-4 justify-content-center">
+    <form action="{{ route('peminjaman.store') }}" method="POST" class="row g-4 justify-content-center">
+        @csrf
         <div class="col-md-5">
             <label class="form-label text-muted">Judul Buku</label>
-            <input type="text" class="form-control bg-light-subtle" placeholder="Harry Potter, A Game of Thrones, and more">
+            <input type="text" name="judul_buku" class="form-control bg-light-subtle" placeholder="Judul Buku">
         </div>
-
+        
         <div class="col-md-5">
             <label class="form-label text-muted">Tanggal Pinjam</label>
-            <input type="date" class="form-control bg-light-subtle">
+            <input type="date" name="tanggal_pinjam" class="form-control bg-light-subtle">
         </div>
-
+        
         <div class="col-md-5">
             <label class="form-label text-muted">Nama Peminjam</label>
-            <input type="text" class="form-control bg-light-subtle" placeholder="Nama Anda">
+            <input type="text" name="nama_peminjam" class="form-control bg-light-subtle" placeholder="Nama Anda">
         </div>
-
+        
         <div class="col-md-5">
             <label class="form-label text-muted">Tanggal Kembali</label>
-            <input type="date" class="form-control bg-light-subtle">
+            <input type="date" name="tanggal_kembali" class="form-control bg-light-subtle">
         </div>
-
+        
         <div class="col-md-5">
             <label class="form-label text-muted">ID Peminjam</label>
-            <input type="text" class="form-control bg-light-subtle" placeholder="ID Anda">
+            <input type="text" name="id_peminjam" class="form-control bg-light-subtle" placeholder="ID Anda">
         </div>
-
+        
         <div class="col-md-5 d-flex align-items-end">
-            <button type="submit" class="btn btn-secondary fw-bold">
-                Pinjam Buku
-            </button>
+            <button type="submit" class="btn btn-secondary fw-bold">Pinjam Buku</button>
         </div>
     </form>
 </div>

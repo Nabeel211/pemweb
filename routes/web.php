@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\KomikController;
+use App\Http\Controllers\BiografiController;
+use App\Http\Controllers\NovelController;
+use App\Http\Controllers\CerpenController;
+use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\PeminjamanController;
 
 // Halaman publik
 Route::get('/', function () {
@@ -60,4 +66,18 @@ Route::get('/home', function () {
 })->middleware('auth')->name('home');
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
 Route::post('/register', [RegisterController::class, 'register']);
+
+Route::get('/komik', [KomikController::class, 'index'])->name('komik');
+
+Route::get('/biografi', [BiografiController::class, 'index'])->name('biografi');
+
+Route::get('/cerpen', [CerpenController::class, 'index'])->name('cerpen');
+
+Route::get('/novel', [NovelController::class, 'index'])->name('novel');
+
+Route::get('/pelajaran', [PelajaranController::class, 'index'])->name('pelajaran');
+
+Route::get('/history', [PeminjamanController::class, 'history'])->name('history');
+Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');

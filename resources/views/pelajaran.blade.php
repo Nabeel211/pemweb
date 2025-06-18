@@ -23,6 +23,13 @@
         font-size: 0.9rem;
         color: #555;
     }
+    .comic-wrapper {
+        background-color: rgba(230, 228, 228, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(2px);
+        padding-top: 3rem !important;
+    }
 </style>
 
 <div class="container-fluid" style="
@@ -32,51 +39,26 @@
     min-height: 100vh;
     padding: 2rem;
 ">
-<!-- Overlay -->
-    <div style="
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 0;
-        ">
-    </div>
-    <div style="position: relative; z-index: 1;">
-        <h2 class="text-center mb-4" style="font-weight: bold;">Buku Pelajaran</h2>
 
+<div style="position: relative; z-index: 1;">
+    <h1 class="text-center mb-4" style="font-weight: bold;">Buku Pelajaran</h1>
+    <!-- Kotak besar pembungkus -->
+    <div class="comic-wrapper p-4">
         <div class="row justify-content-center">
-            @php
-                $komikList = [
-                    ['img' => 'beloved girl.jpg', 'title' => 'Detektif Conan', 'chapter' => '1000', 'rating' => '8/10'],
-                    ['img' => 'game of thrones.jpg', 'title' => 'Spy X Family', 'chapter' => '70', 'rating' => '9/10'],
-                    ['img' => 'harry potter.jpg', 'title' => 'The Apothecary Diaries', 'chapter' => '100', 'rating' => '8/10'],
-                    ['img' => 'million to one.jpg', 'title' => 'Kimetsu no Yaiba', 'chapter' => '100', 'rating' => '8/10'],
-                    ['img' => 'ocean door.jpg', 'title' => 'One Piece', 'chapter' => '1000', 'rating' => '8/10'],
-                ];
-            @endphp
-
-            @for ($i = 0; $i < 3; $i++) {{-- Loop baris --}}
-                @foreach ($komikList as $komik)
-                    <div class="col-6 col-sm-4 col-md-2 text-center mb-4 comic-card">
-                        <img src="{{ asset('img/' . $komik['img']) }}" alt="{{ $komik['title'] }}">
-                        <div class="comic-title">{{ $komik['title'] }}</div>
-                        <div class="comic-info">Chapter {{ $komik['chapter'] }}</div>
-                        <div class="comic-info">Rating {{ $komik['rating'] }}</div>
+            @foreach ($pelajaranList as $pelajaran)
+                <div class="text-center mb-4 comic-card d-inline-block" style="width: 20%;">
+                    <img src="{{ asset('img/' . $pelajaran['img']) }}" alt="{{ $pelajaran['title'] }}">
+                    <div class="comic-details mt-2 px-2 py-2">
+                        <div class="comic-title">{{ $pelajaran['title'] }}</div>
+                        <div class="comic-info">Chapter {{ $pelajaran['chapter'] }}</div>
+                        <div class="comic-info">Rating {{ $pelajaran['rating'] }}</div>
                     </div>
-                @endforeach
-            @endfor
+                </div>
+            @endforeach
         </div>
-
         <!-- Pagination -->
-        <div class="d-flex justify-content-between align-items-center mt-4">
-            <a href="#" class="btn btn-outline-secondary">&lt; Previous</a>
-            <div>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>...</span>
-                <span>99</span>
-            </div>
-            <a href="#" class="btn btn-outline-secondary">Next &gt;</a>
+        <div class="d-flex justify-content-end mt-4">
+            {{ $pelajaranList->links('vendor.pagination.bootstrap-5') }}
         </div>
     </div>
 </div>
