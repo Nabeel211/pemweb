@@ -44,17 +44,31 @@ Route::get('/biografi', function () {
     return view('biografi');
 })->name('biografi');
 
-// Auth (Guest Only)
+// Auth Routes - Guest Only (tidak boleh diakses jika sudah login)
 Route::middleware('guest')->group(function () {
+    // Login Routes
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
+    
+    // Register Routes
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register']);
 });
 
-// Logout
-Route::post('/logout', function () {
-    Auth::logout();
-    return redirect('/login');
-})->name('logout');
+// Logout Route - Hanya untuk user yang sudah login
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', function () {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/');
+    })->name('logout');
+    
+    // Authenticated User Pages
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
+});
 
 // Authenticated User Pages
 Route::get('/profile', function () {

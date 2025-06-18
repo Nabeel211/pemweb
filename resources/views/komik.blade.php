@@ -50,7 +50,6 @@
                     <img src="{{ asset('img/' . $komik['img']) }}" alt="{{ $komik['title'] }}">
                     <div class="comic-details mt-2 px-2 py-2">
                         <div class="comic-title">{{ $komik['title'] }}</div>
-                        <div class="comic-info">Chapter {{ $komik['chapter'] }}</div>
                         <div class="comic-info">Rating {{ $komik['rating'] }}</div>
                     </div>
                 </div>
