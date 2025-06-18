@@ -16,6 +16,17 @@
 ">
 <div class="container py-4">
     <h1 class="text-center mb-5 fw-bold">Pinjam Buku</h1>
+    @if (session('error'))
+        <div class="alert alert-danger text-center">
+            {{ session('error') }}
+        </div>
+    @endif
+    
+    @if (session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
     
     <form action="{{ route('peminjaman.store') }}" method="POST" class="row g-4 justify-content-center">
         @csrf

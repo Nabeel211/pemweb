@@ -22,11 +22,20 @@ class PeminjamanController extends Controller
             'id_peminjam' => 'required',
         ]);
         
+        // Cek apakah buku sedang dipinjam (status masih "Dipinjam")
+        $isDipinjam = Peminjaman::where('judul_buku', $request->judul_buku)
+                        ->where('status', 'Dipinjam')
+                        ->exists();
+        
+        if ($isDipinjam) {
+            return redirect()->back()->with('error', 'Buku sedang dipinjam, silakan tunggu hingga dikembalikan.');
+        }
+        
+        // Jika tidak sedang dipinjam, simpan data
         Peminjaman::create($request->all());
-
-        return redirect()->route('history')->with('success', 'Buku Berhasil Dipinjam!');
+        
+        return redirect()->route('history')->with('success', 'Peminjaman berhasil disimpan!');
     }
-
     public function history()
         {
             $peminjaman = \App\Models\Peminjaman::orderBy('created_at', 'desc')->get();
